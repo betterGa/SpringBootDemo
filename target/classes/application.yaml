@@ -1,0 +1,18 @@
+##数据源配置
+spring:
+ datasource:
+  driver-class-name: com.mysql.cj.jdbc.Driver
+  url: jdbc:mysql://localhost:3306/springbatch?useSSL=false&serverTimezone=UTC&characterEncoding=utf8&allowPublicKeyRetrieval=true
+  password: 123456
+  username: root
+ batch:
+    job:
+      # 默认自动执行定义的 job(true)，该为 false，需要 jobLaucher.run 执行
+     enable: false
+    initialize-schema: always
+
+
+## mybatis属性配置
+mybatis:
+ configuration:
+  map-underscore-to-camel-case: true

@@ -1,0 +1,31 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $("button").click(function () {
+                var newProduct = {id: "4", name: "车子"};
+                var productstr = JSON.stringify(newProduct);
+                $.ajax({
+                        type: "POST",
+                        url: "http://localhost:8080/products",
+                        contentType: "application/json;charset=UTF-8",
+                        data: productstr,
+                        success: function (data) {
+                            alert("新增" + data.name + "成功！");
+                        },
+                        error: function (data) {
+                            alert(data);
+                        }
+                    }
+                );
+            });
+        });
+    </script>
+</head>
+<body>
+<button>新增商品</button>
+</body>
+</html>

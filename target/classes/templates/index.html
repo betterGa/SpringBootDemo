@@ -1,0 +1,32 @@
+<!doctype html> <!--注意：引入thymeleaf的名称空间-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title></head>
+<body>
+<p th:text="hello">Hello</p>
+<p th:text="${jiaUser}"></p>
+<p th:text="${jiaUser.getUserName()}"></p>
+<p th:text="${jiaUser.getPassword()}"></p>
+<p th:text="${jiaUser.hobbies}"></p>
+<p th:text="${jiaUser.secrets}"></p>
+
+<table th:each="item,sta:${jiaUser.hobbies}">
+<tr>
+    <td th:text="${item}"></td>
+    <td th:text="${sta.index}"></td>
+    <td th:text="${sta.odd}"></td>
+    <td th:text="${sta.size}"></td>
+</tr>
+</table>
+
+<div th:each="item:${jiaUser.secrets}" th:text="${item.key}"></div>
+<div th:each="item:${jiaUser.secrets}" th:text="${item.value}"></div>
+
+<input type="text" th:attr="value=${jiaUser.userName}">
+<input type="text" th:attr="value=${jiaUser.password}">
+</body>
+</html>

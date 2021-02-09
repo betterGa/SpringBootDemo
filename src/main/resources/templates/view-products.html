@@ -1,0 +1,17 @@
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+    <script> $(document).ready(function () {
+        $.getJSON("http://localhost:8080/products", function (result) {
+            $.each(result, function (key, value) {
+                $("#productsJson").append(value.id + " " + value.name + " ");
+            });
+        });
+    });
+    </script>
+</head>
+<bodyb
+<div id="productsJson"></div>
+</body>
+</html>
